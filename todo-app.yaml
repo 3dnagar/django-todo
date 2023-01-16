@@ -1,0 +1,25 @@
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: todo
+        tier: frontend
+    spec:
+      containers:
+        - name: my-image
+          image: 260840897646.dkr.ecr.ap-south-1.amazonaws.com/my-image:latest
+          ports:
+            - containerPort: 8000
+
+
